@@ -48,11 +48,14 @@ const menuGroups = [
 ];
 
 export default function Home() {
+  const foundingYear = 1977;
+  const yearsOfCraft = new Date().getFullYear() - foundingYear;
+
   return (
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="松竹 ホームへ">
-          <Image src="/images/nihei-kamon.jpg" alt="二瓶家の家紋" width={44} height={44} />
+          <Image src="/images/shochiku-mark.png" alt="松竹の印" width={52} height={52} />
           <span>
             <b>松竹</b>
             <small>HAIR SALON RESERVE</small>
@@ -79,28 +82,24 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow"><span>OME, TOKYO</span><span>SECOND GENERATION</span></p>
+          <p className="eyebrow"><span>東京・青梅</span><span>二代目</span></p>
           <h1>受け継ぐ技。<br />研ぎ澄ます粋。</h1>
-          <p className="hero-lead">古き良き床屋の仕事を、今の男へ。<br />青梅で創業48年、二代目が鋏を入れる。</p>
+          <p className="hero-lead">古き良き床屋の仕事を、今の男へ。<br />1977年創業、二代目が鋏を入れる。</p>
           <div className="hero-actions">
             <a className="button solid" href="tel:0428244009"><span>予約する</span><small>0428-24-4009</small></a>
             <a className="text-link" href="#styles">仕上がりを見る <b>↘</b></a>
           </div>
           <div className="hero-facts" aria-label="店舗概要">
-            <p><strong>48</strong><span>YEARS<br />OF CRAFT</span></p>
-            <p><strong>2ND</strong><span>MASASHI<br />NIHEI</span></p>
-            <p><strong>OME</strong><span>TOKYO<br />BARBER</span></p>
+            <p><strong>創業{yearsOfCraft}年</strong><span>1977年より<br />磨き続ける技</span></p>
+            <p><strong>二代目</strong><span>床屋育ち<br />二瓶雅士</span></p>
+            <p><strong>青梅</strong><span>東青梅<br />予約制の床屋</span></p>
           </div>
         </div>
         <div className="hero-visual">
-          <div className="crest-wrap">
-            <Image src="/images/nihei-kamon.jpg" alt="二瓶家の家紋" fill sizes="(max-width: 800px) 85vw, 44vw" priority />
-            <span>二瓶家 家紋</span>
+          <div className="hero-style-wrap">
+            <Image src="/images/hero-nurepan-city.jpg" alt="夜の街に映えるフェード濡れパンスタイル" fill sizes="(max-width: 800px) 100vw, 49vw" priority />
           </div>
-          <div className="portrait-wrap">
-            <Image src="/images/masashi-nihei.jpg" alt="ヘアサロンリザーブ松竹 二代目代表 二瓶雅士" fill sizes="(max-width: 800px) 92vw, 48vw" priority />
-          </div>
-          <p className="portrait-caption"><span>二代目代表</span><strong>二瓶 雅士</strong><small>MASASHI NIHEI</small></p>
+          <p className="style-caption"><span>松竹が創る</span><strong>フェード濡れパン</strong><small>FADE × IRON PERM</small></p>
         </div>
         <div className="hero-wordmark" aria-hidden="true">SHOCHIKU BARBER</div>
         <a className="scroll-cue" href="#spirit">SCROLL <span>↓</span></a>
@@ -144,7 +143,7 @@ export default function Home() {
           <div className="section-index light"><span>03</span><p>MENU</p></div>
           <p className="kicker">手を抜かない。飾らない。</p>
           <h2>粋を整える、<br />床屋の仕事。</h2>
-          <p>全メニュー、フェード・スキンフェード（0.4mm以下）は＋300円。髪の長さや施術内容により料金が変わる場合があります。</p>
+          <p>料金はすべて税込です。髪の長さや施術内容により料金が変わる場合は、施術前にお伝えします。</p>
           <a className="button ivory" href="tel:0428244009"><span>電話で相談する</span><small>0428-24-4009</small></a>
         </div>
         <div className="menu-list">
@@ -153,6 +152,13 @@ export default function Home() {
               <header><span>{group.label}</span><h3>{group.title}</h3><small>{group.note}</small></header>
               <div>
                 {group.items.map(([name, price]) => <p key={name}><span>{name}</span><strong>{price}</strong></p>)}
+                {group.label === "CUT" && (
+                  <aside className="fade-note">
+                    <span>すべてのカットを含むメニューが対象</span>
+                    <b>フェード・スキンフェード</b>
+                    <p><strong>＋¥300</strong><small>0.4mm以下の短さをご希望の場合</small></p>
+                  </aside>
+                )}
               </div>
             </article>
           ))}
@@ -161,8 +167,7 @@ export default function Home() {
 
       <section className="profile section">
         <div className="profile-visual">
-          <Image src="/images/masashi-nihei.jpg" alt="二代目代表 二瓶雅士" fill sizes="(max-width: 800px) 100vw, 45vw" />
-          <Image className="profile-crest" src="/images/nihei-kamon.jpg" alt="二瓶家の家紋" width={190} height={190} />
+          <Image src="/images/masashi-nihei-kamon.jpg" alt="二瓶家の家紋を背負う二代目代表 二瓶雅士" fill sizes="(max-width: 800px) 100vw, 48vw" />
         </div>
         <div className="profile-copy">
           <div className="section-index"><span>04</span><p>BARBER</p></div>
@@ -198,7 +203,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-mark"><Image src="/images/nihei-kamon.jpg" alt="二瓶家の家紋" width={96} height={96} /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
+        <div className="footer-mark"><Image src="/images/shochiku-mark.png" alt="松竹の印" width={112} height={112} /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
         <p className="footer-copy">受け継ぐ技。研ぎ澄ます粋。</p>
         <div className="footer-meta"><a href="tel:0428244009">TEL 0428-24-4009</a><span>© SHOCHIKU BARBER</span></div>
       </footer>

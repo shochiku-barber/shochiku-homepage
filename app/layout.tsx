@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: "受け継ぐ技。研ぎ澄ます粋。",
     images: ["/og.png"],
   },
-  icons: { icon: "/images/shochiku-mark.png", shortcut: "/images/shochiku-mark.png" },
+  icons: { icon: "/images/shochiku-emblem.png", shortcut: "/images/shochiku-emblem.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

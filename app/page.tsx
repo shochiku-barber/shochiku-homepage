@@ -55,11 +55,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="松竹 ホームへ">
-          <img src="/images/shochiku-mark.png" alt="松竹の印" width="52" height="52" />
-          <span>
-            <b>松竹</b>
-            <small>HAIR SALON RESERVE</small>
-          </span>
+          <img src="/images/shochiku-emblem.png" alt="松竹の印" width="56" height="56" />
         </a>
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="#spirit">心意気</a>
@@ -82,13 +78,9 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow"><span>東京・青梅</span><span>二代目</span></p>
+          <p className="eyebrow">古き魂。新しき刃。</p>
           <h1>受け継ぐ技。<br />研ぎ澄ます粋。</h1>
-          <p className="hero-lead">古き良き床屋の仕事を、今の男へ。<br />1977年創業、二代目が鋏を入れる。</p>
-          <div className="hero-actions">
-            <a className="button solid" href="tel:0428244009"><span>予約する</span><small>0428-24-4009</small></a>
-            <a className="text-link" href="#styles">仕上がりを見る <b>↘</b></a>
-          </div>
+          <p className="hero-lead">古き良き床屋の矜持を、いまの男へ。<br />一人ひとりの骨格と生き方に、揺るがない輪郭を刻む。</p>
           <div className="hero-facts" aria-label="店舗概要">
             <p><strong>創業{yearsOfCraft}年</strong><span>1977年より<br />磨き続ける技</span></p>
             <p><strong>二代目</strong><span>床屋育ち<br />二瓶雅士</span></p>
@@ -97,9 +89,13 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-style-wrap">
-            <Image src="/images/hero-editorial-night.png" alt="雨上がりの夜の街に映えるフェード濡れパンスタイル" fill sizes="(max-width: 800px) 100vw, 49vw" priority />
+            <Image src="/images/hero-nurepan-editorial.png" alt="青梅の街で仕立てたフェード濡れパンスタイル" fill sizes="(max-width: 980px) 100vw, 49vw" priority />
           </div>
           <p className="style-caption"><span>松竹が創る</span><strong>フェード濡れパン</strong><small>FADE × IRON PERM</small></p>
+          <a className="hero-reserve-panel" href="tel:0428244009">
+            <span><b>電話で予約</b><small>ご予約優先</small></span>
+            <strong>0428-24-4009</strong><i>→</i>
+          </a>
         </div>
         <div className="hero-wordmark" aria-hidden="true">SHOCHIKU BARBER</div>
         <a className="scroll-cue" href="#spirit">SCROLL <span>↓</span></a>
@@ -203,7 +199,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-mark"><img src="/images/shochiku-mark.png" alt="松竹の印" width="112" height="112" /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
+        <div className="footer-mark"><img src="/images/shochiku-emblem.png" alt="松竹の印" width="112" height="112" /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
         <p className="footer-copy">受け継ぐ技。研ぎ澄ます粋。</p>
         <div className="footer-meta"><a href="tel:0428244009">TEL 0428-24-4009</a><span>© SHOCHIKU BARBER</span></div>
       </footer>

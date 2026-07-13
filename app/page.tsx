@@ -55,7 +55,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="松竹 ホームへ">
-          <Image src="/images/shochiku-mark.png" alt="松竹の印" width={52} height={52} />
+          <img src="/images/shochiku-mark.png" alt="松竹の印" width="52" height="52" />
           <span>
             <b>松竹</b>
             <small>HAIR SALON RESERVE</small>
@@ -97,7 +97,7 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-style-wrap">
-            <Image src="/images/hero-nurepan-city.jpg" alt="夜の街に映えるフェード濡れパンスタイル" fill sizes="(max-width: 800px) 100vw, 49vw" priority />
+            <Image src="/images/hero-editorial-night.png" alt="雨上がりの夜の街に映えるフェード濡れパンスタイル" fill sizes="(max-width: 800px) 100vw, 49vw" priority />
           </div>
           <p className="style-caption"><span>松竹が創る</span><strong>フェード濡れパン</strong><small>FADE × IRON PERM</small></p>
         </div>
@@ -203,7 +203,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-mark"><Image src="/images/shochiku-mark.png" alt="松竹の印" width={112} height={112} /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
+        <div className="footer-mark"><img src="/images/shochiku-mark.png" alt="松竹の印" width="112" height="112" /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
         <p className="footer-copy">受け継ぐ技。研ぎ澄ます粋。</p>
         <div className="footer-meta"><a href="tel:0428244009">TEL 0428-24-4009</a><span>© SHOCHIKU BARBER</span></div>
       </footer>

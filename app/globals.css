@@ -55,7 +55,7 @@ img { display: block; }
 .hero-facts span { font: 500 8px/1.55 var(--serif); letter-spacing: .1em; color: var(--silver); }
 .hero-visual { position: relative; min-height: 100svh; overflow: hidden; border-left: 1px solid rgba(245,242,232,.14); background: radial-gradient(circle at 70% 20%, #3c3f40, #111315 56%, #070809); }
 .hero-style-wrap { position: absolute; z-index: 2; inset: 0; animation: portrait-in 1.4s cubic-bezier(.2,.7,.2,1) both; }
-.hero-style-wrap img { object-fit: cover; object-position: 59% center; filter: grayscale(1) contrast(1.08); }
+.hero-style-wrap img { object-fit: cover; object-position: 64% center; filter: contrast(1.04) saturate(.92); }
 .hero-style-wrap::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,12,13,.76) 0, transparent 38%, transparent 76%, rgba(11,12,13,.28)), linear-gradient(0deg, rgba(11,12,13,.78) 0, transparent 42%); }
 .style-caption { position: absolute; z-index: 4; right: 4vw; bottom: 11vh; margin: 0; display: grid; text-align: right; text-shadow: 0 2px 20px #000; }
 .style-caption span { font: 500 11px/1 var(--serif); letter-spacing: .25em; color: var(--silver); }

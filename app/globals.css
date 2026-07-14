@@ -245,16 +245,16 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
   .mobile-menu summary { width: 40px; height: 40px; }
   .mobile-menu nav { top: 62px; }
   .hero::before { background: linear-gradient(90deg, rgba(8,9,9,.76) 0%, rgba(8,9,9,.34) 72%, rgba(8,9,9,.12) 100%), linear-gradient(0deg, rgba(8,9,9,.86) 0%, rgba(8,9,9,.28) 62%, rgba(8,9,9,.12) 100%); }
-  .hero-copy { width: 100%; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 112px 20px 42px; }
+  .hero-copy { width: 100%; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 92px 20px 34px; }
   .eyebrow { gap: 10px; margin-bottom: 16px; font-size: 7px; letter-spacing: .2em; }
   .eyebrow::after { width: 32px; }
-  .hero h1 { max-width: 9em; font-size: clamp(34px, 9.8vw, 44px); line-height: 1.14; letter-spacing: -.055em; }
-  .hero-lead { margin-top: 17px; font-size: 10px; line-height: 1.75; letter-spacing: .06em; }
-  .hero-actions { width: min(100%, 370px); margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 8px; }
+  .hero h1 { max-width: 9em; font-size: clamp(30px, 8.4vw, 38px); line-height: 1.08; letter-spacing: -.055em; }
+  .hero-lead { margin-top: 12px; font-size: 9px; line-height: 1.65; letter-spacing: .05em; }
+  .hero-actions { width: min(100%, 370px); margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 8px; }
   .hero-actions .button { width: auto; min-width: 0; padding: 12px; gap: 8px; font-size: 10px; letter-spacing: .08em; }
   .hero-actions .button small { font-size: 7px; letter-spacing: .02em; }
   .hero-actions .text-link { grid-column: 1 / -1; width: fit-content; margin-top: 2px; padding: 9px 0; font-size: 9px; }
-  .hero-style-wrap img { object-position: 59% 38%; filter: grayscale(.94) contrast(.92) brightness(1.2); }
+  .hero-style-wrap img { object-position: 28% 40%; filter: grayscale(.94) contrast(.92) brightness(1.2); }
   .hero-technique { display: none; }
   .ticker { height: 48px; }
   .section { padding: 80px 22px; }

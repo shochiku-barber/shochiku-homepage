@@ -165,7 +165,7 @@ export default function Home() {
           <h2 className="salon-name">男を整える、<br /><span>粋な床屋。</span></h2>
           <div className="access-map">
             <iframe
-              src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E9%9D%92%E6%A2%85%E5%B8%82%E6%9D%B1%E9%9D%923-9-15&output=embed"
+              src="https://www.google.com/maps?q=35.7881968%2C139.2767353&z=18&output=embed"
               title="ヘアーサロンリザーブ松竹の地図"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

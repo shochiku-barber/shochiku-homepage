@@ -1,19 +1,5 @@
 import Image from "next/image";
-
-const styles = [
-  { src: "/images/style-01.jpg", alt: "クロップスタイルとスキンフェード" },
-  { src: "/images/style-05.jpg", alt: "動きのあるパーマとフェード" },
-  { src: "/images/style-08.jpg", alt: "メッシュパーマとフェード" },
-  { src: "/images/style-12.jpg", alt: "クラシカルな七三スタイル" },
-  { src: "/images/style-14.jpg", alt: "短めクロップとフェード" },
-  { src: "/images/style-18.jpg", alt: "アイロンパーマのクラシックスタイル" },
-  { src: "/images/style-19.jpg", alt: "強めカールとフェード" },
-  { src: "/images/style-22.jpg", alt: "清潔感のあるボウズフェード" },
-  { src: "/images/style-24.jpg", alt: "ハイライトを効かせたフェード" },
-  { src: "/images/style-27.jpg", alt: "大人のパーマスタイル" },
-  { src: "/images/style-29.jpg", alt: "柔らかなウェーブとフェード" },
-  { src: "/images/style-35.jpg", alt: "カーリーヘアとスキンフェード" },
-];
+import { styles } from "./style-data";
 
 const menuGroups = [
   {
@@ -59,7 +45,7 @@ export default function Home() {
         </a>
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="#spirit">心意気</a>
-          <a href="#styles">仕上がり</a>
+          <a href="/styles">仕上がり</a>
           <a href="#menu">料金</a>
           <a href="#access">店舗案内</a>
         </nav>
@@ -68,7 +54,7 @@ export default function Home() {
           <summary aria-label="メニューを開く"><i /><i /></summary>
           <nav aria-label="モバイルナビゲーション">
             <a href="#spirit">心意気</a>
-            <a href="#styles">仕上がり</a>
+            <a href="/styles">仕上がり</a>
             <a href="#menu">料金</a>
             <a href="#access">店舗案内</a>
             <a href="tel:0428244009">電話予約</a>
@@ -82,14 +68,14 @@ export default function Home() {
           <h1>受け継ぐ技。<br />研ぎ澄ます粋。</h1>
           <p className="hero-lead">古き良き床屋の矜持を、いまの男へ。<br />一人ひとりの骨格と生き方に、揺るがない輪郭を刻む。</p>
           <div className="hero-facts" aria-label="店舗概要">
-            <p><strong>創業{yearsOfCraft}年</strong><span>1977年より<br />磨き続ける技</span></p>
-            <p><strong>二代目</strong><span>床屋育ち<br />二瓶雅士</span></p>
-            <p><strong>青梅</strong><span>東青梅<br />予約制の床屋</span></p>
+            <p><strong>創業{yearsOfCraft}年</strong><span>{yearsOfCraft === 49 ? "FORTY-NINE" : `${yearsOfCraft}`} YEARS</span></p>
+            <p><strong>二代目</strong><span>SECOND GENERATION</span></p>
+            <p><strong>青梅の床屋</strong><span>OME / TOKYO</span></p>
           </div>
         </div>
         <div className="hero-visual">
           <div className="hero-style-wrap">
-            <Image src="/images/hero-nurepan-editorial.png" alt="青梅の街で仕立てたフェード濡れパンスタイル" fill sizes="(max-width: 980px) 100vw, 49vw" priority />
+            <Image src="/images/hero-nurepan-fictional-v3.png" alt="青梅の街で仕立てたフェード濡れパンスタイル" fill sizes="(max-width: 980px) 100vw, 49vw" priority />
           </div>
           <p className="style-caption"><span>松竹が創る</span><strong>フェード濡れパン</strong><small>FADE × IRON PERM</small></p>
           <a className="hero-reserve-panel" href="tel:0428244009">
@@ -125,13 +111,14 @@ export default function Home() {
           <p className="section-note">骨格、髪質、仕事、日々の手入れ。<br />その男に似合う一手を見極める。</p>
         </div>
         <div className="style-grid">
-          {styles.map((style, index) => (
+          {styles.slice(0, 4).map((style, index) => (
             <figure key={style.src} className={`style-card style-${index + 1}`}>
               <Image src={style.src} alt={style.alt} fill sizes="(max-width: 700px) 50vw, 25vw" />
               <figcaption><span>SHOCHIKU CUT</span><b>{String(index + 1).padStart(2, "0")}</b></figcaption>
             </figure>
           ))}
         </div>
+        <a className="archive-link" href="/styles"><span>すべての仕上がりを見る</span><b>STYLE ARCHIVE</b><i>→</i></a>
       </section>
 
       <section className="menu section" id="menu">
@@ -184,7 +171,7 @@ export default function Home() {
         <div className="access-title">
           <div className="section-index"><span>05</span><p>ACCESS</p></div>
           <p className="kicker">ご予約の上、お越しください。</p>
-          <h2>青梅で、<br />鋏を研いで待つ。</h2>
+          <h2>東青梅、<br />松竹。</h2>
         </div>
         <div className="access-info">
           <div><span>ADDRESS</span><p>〒198-0042<br />東京都青梅市東青梅3-9-15</p></div>
@@ -195,6 +182,10 @@ export default function Home() {
         <div className="access-actions">
           <a className="button solid" href="tel:0428244009"><span>電話で予約する</span><small>0428-24-4009</small></a>
           <a className="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E9%9D%92%E6%A2%85%E5%B8%82%E6%9D%B1%E9%9D%923-9-15" target="_blank" rel="noreferrer">地図を開く <b>↗</b></a>
+        </div>
+        <div className="social-actions">
+          <a className="social-link line" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer"><span>LINE</span><b>予約・相談する</b><i>↗</i></a>
+          <a className="social-link instagram" href="https://www.instagram.com/reserve_shochiku" target="_blank" rel="noreferrer"><span>INSTAGRAM</span><b>仕上がりを見る</b><i>↗</i></a>
         </div>
       </section>
 

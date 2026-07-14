@@ -83,7 +83,6 @@ export default function Home() {
             <strong>0428-24-4009</strong><i>→</i>
           </a>
         </div>
-        <div className="hero-wordmark" aria-hidden="true">SHOCHIKU BARBER</div>
         <a className="scroll-cue" href="#spirit">SCROLL <span>↓</span></a>
       </section>
 

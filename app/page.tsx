@@ -171,7 +171,7 @@ export default function Home() {
         <div className="access-title">
           <div className="section-index"><span>05</span><p>ACCESS</p></div>
           <p className="kicker">ご予約の上、お越しください。</p>
-          <h2>東青梅、<br />松竹。</h2>
+          <h2 className="salon-name">ヘアーサロンリザーブ<br /><span>松竹。</span></h2>
         </div>
         <div className="access-info">
           <div><span>ADDRESS</span><p>〒198-0042<br />東京都青梅市東青梅3-9-15</p></div>

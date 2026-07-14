@@ -56,7 +56,7 @@ img { display: block; }
 .hero-facts span { font: 700 8px/1 var(--sans); letter-spacing: .26em; color: var(--silver); white-space: nowrap; }
 .hero-visual { position: relative; min-height: 100svh; overflow: hidden; border-left: 1px solid rgba(245,242,232,.14); background: radial-gradient(circle at 70% 20%, #3c3f40, #111315 56%, #070809); }
 .hero-style-wrap { position: absolute; z-index: 2; inset: 0; animation: portrait-in 1.4s cubic-bezier(.2,.7,.2,1) both; }
-.hero-style-wrap img { object-fit: cover; object-position: 50% 38%; filter: grayscale(1) contrast(1.1) brightness(.74); }
+.hero-style-wrap img { object-fit: cover; object-position: 50% 38%; filter: grayscale(1) contrast(1.05) brightness(.92); }
 .hero-style-wrap::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,12,13,.24), transparent 38%), linear-gradient(0deg, rgba(11,12,13,.86) 0, transparent 35%); }
 .style-caption { position: absolute; z-index: 4; left: 3.6vw; bottom: 132px; margin: 0; display: grid; text-align: left; text-shadow: 0 2px 20px #000; }
 .style-caption span { font: 500 11px/1 var(--serif); letter-spacing: .25em; color: var(--silver); }
@@ -150,6 +150,8 @@ img { display: block; }
 .access { display: grid; grid-template-columns: 50% 50%; background: var(--ivory); }
 .access-title { grid-row: span 2; padding-right: 6vw; }
 .access-title .kicker { margin-top: 70px; }
+.access-title .salon-name { font-size: clamp(38px, 4.6vw, 76px); line-height: 1.28; }
+.access-title .salon-name span { display: inline-block; margin-left: 2.7em; }
 .access-info { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .access-info > div { min-height: 145px; padding: 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .access-info span { font: 700 8px/1 var(--sans); letter-spacing: .28em; color: #737673; }
@@ -274,6 +276,8 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
   .ticker { height: 48px; }
   .section { padding: 80px 22px; }
   .spirit-heading h2, .menu-intro h2, .access h2 { font-size: 12vw; }
+  .access-title .salon-name { font-size: 10vw; }
+  .access-title .salon-name span { margin-left: 1.7em; }
   .section-head h2 { font-size: 15vw; }
   .style-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
   .style-card:nth-child(3), .style-card:nth-child(8) { grid-row: auto; aspect-ratio: .77; }

@@ -34,9 +34,6 @@ const menuGroups = [
 ];
 
 export default function Home() {
-  const foundingYear = 1977;
-  const yearsOfCraft = new Date().getFullYear() - foundingYear;
-
   return (
     <main>
       <header className="site-header">
@@ -63,26 +60,20 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
+        <div className="hero-style-wrap">
+          <Image src="/images/hero-nurepan-fictional-v3.png" alt="青梅の街で仕立てたフェード濡れパンスタイル" fill sizes="100vw" priority />
+        </div>
         <div className="hero-copy">
           <p className="eyebrow">古き魂。新しき刃。</p>
           <h1>受け継ぐ技。<br />研ぎ澄ます粋。</h1>
-          <p className="hero-lead">古き良き床屋の矜持を、いまの男へ。<br />一人ひとりの骨格と生き方に、揺るがない輪郭を刻む。</p>
-          <div className="hero-facts" aria-label="店舗概要">
-            <p><strong>創業{yearsOfCraft}年</strong><span>{yearsOfCraft === 49 ? "FORTY-NINE" : `${yearsOfCraft}`} YEARS</span></p>
-            <p><strong>二代目</strong><span>SECOND GENERATION</span></p>
-            <p><strong>青梅の床屋</strong><span>OME / TOKYO</span></p>
+          <p className="hero-lead"><strong>松竹が創る、フェード濡れパン。</strong><br />一人ひとりの輪郭を、一本の線で決める。</p>
+          <div className="hero-actions">
+            <a className="button solid" href="tel:0428244009"><span>電話で予約</span><small>0428-24-4009</small></a>
+            <a className="button ghost" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer"><span>LINEで予約</span><small>予約・相談</small></a>
+            <a className="text-link" href="/styles">仕上がりを見る <b>↗</b></a>
           </div>
         </div>
-        <div className="hero-visual">
-          <div className="hero-style-wrap">
-            <Image src="/images/hero-nurepan-fictional-v3.png" alt="青梅の街で仕立てたフェード濡れパンスタイル" fill sizes="(max-width: 980px) 100vw, 49vw" priority />
-          </div>
-          <p className="style-caption"><span>松竹が創る</span><strong>フェード濡れパン</strong><small>FADE × IRON PERM</small></p>
-          <a className="hero-reserve-panel" href="tel:0428244009">
-            <span><b>電話で予約</b><small>ご予約優先</small></span>
-            <strong>0428-24-4009</strong><i>→</i>
-          </a>
-        </div>
+        <p className="hero-technique"><span>SHOCHIKU STYLE</span><strong>FADE × IRON PERM</strong></p>
         <a className="scroll-cue" href="#spirit">SCROLL <span>↓</span></a>
       </section>
 
@@ -97,7 +88,7 @@ export default function Home() {
           <h2>男の輪郭を、<br />一本の線で決める。</h2>
         </div>
         <div className="spirit-body">
-          <p>理容師の家に生まれ、床屋の仕事を見て育ちました。先代から受け継いだ基本を守りながら、フェード、アイロンパーマ、クラシカルなスタイルを今の感覚で仕立てます。</p>
+          <p>1977年の創業以来、床屋の仕事を受け継いできました。先代から学んだ基本を守りながら、フェード、アイロンパーマ、クラシカルなスタイルを今の感覚で仕立てます。</p>
           <p>流行だけでは終わらない。その人の生き方まで凛と見える髪型を。松竹が目指すのは、いつの時代も「粋な男の髪型」です。</p>
           <div className="signature"><span>二代目代表</span><strong>二瓶 雅士</strong></div>
         </div>

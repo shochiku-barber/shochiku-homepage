@@ -151,6 +151,7 @@ export default function Home() {
       <section className="profile section">
         <div className="profile-visual">
           <Image src="/images/masashi-nihei-kamon.jpg" alt="二瓶家の家紋を背負う二代目代表 二瓶雅士" fill sizes="(max-width: 800px) 100vw, 48vw" />
+          <p className="profile-sign"><span>二代目</span><strong>二瓶 雅士</strong><small>MASASHI NIHEI</small></p>
         </div>
         <div className="profile-copy">
           <div className="section-index"><span>04</span><p>BARBER</p></div>
@@ -171,7 +172,15 @@ export default function Home() {
         <div className="access-title">
           <div className="section-index"><span>05</span><p>ACCESS</p></div>
           <p className="kicker">ご予約の上、お越しください。</p>
-          <h2 className="salon-name">ヘアーサロンリザーブ<br /><span>松竹。</span></h2>
+          <h2 className="salon-name">男を整える、<br /><span>粋な床屋。</span></h2>
+          <div className="access-map">
+            <iframe
+              src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E9%9D%92%E6%A2%85%E5%B8%82%E6%9D%B1%E9%9D%923-9-15&output=embed"
+              title="ヘアーサロンリザーブ松竹の地図"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
         <div className="access-info">
           <div><span>ADDRESS</span><p>〒198-0042<br />東京都青梅市東青梅3-9-15</p></div>
@@ -181,7 +190,7 @@ export default function Home() {
         </div>
         <div className="access-actions">
           <a className="button solid" href="tel:0428244009"><span>電話で予約する</span><small>0428-24-4009</small></a>
-          <a className="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E9%9D%92%E6%A2%85%E5%B8%82%E6%9D%B1%E9%9D%923-9-15" target="_blank" rel="noreferrer">地図を開く <b>↗</b></a>
+          <a className="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E9%9D%92%E6%A2%85%E5%B8%82%E6%9D%B1%E9%9D%923-9-15" target="_blank" rel="noreferrer">詳しい地図を見る <b>↗</b></a>
         </div>
         <div className="social-actions">
           <a className="social-link line" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer"><span>LINE</span><b>予約・相談する</b><i>↗</i></a>

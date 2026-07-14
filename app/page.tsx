@@ -180,7 +180,7 @@ export default function Home() {
         </div>
         <div className="access-actions">
           <a className="button solid" href="tel:0428244009"><span>電話で予約する</span><small>0428-24-4009</small></a>
-          <a className="map-link" href="https://maps.app.goo.gl/P1iRrocF28pEK8Qs8?g_st=ic" target="_blank" rel="noreferrer">詳しい地図を見る <b>↗</b></a>
+          <a className="map-link" href="https://maps.app.goo.gl/ZiTpnex6NHfdcQHy9" target="_blank" rel="noreferrer">詳しい地図を見る <b>↗</b></a>
         </div>
         <div className="social-actions">
           <a className="social-link line" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer"><span>LINE</span><b>予約・相談する</b><i>↗</i></a>

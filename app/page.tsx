@@ -116,7 +116,7 @@ export default function Home() {
         <div className="menu-intro">
           <div className="section-index light"><span>03</span><p>MENU</p></div>
           <p className="kicker">手を抜かない。飾らない。</p>
-          <h2>粋を整える、<br />床屋の仕事。</h2>
+          <h2><span>粋を整える、</span><span>床屋の仕事。</span></h2>
           <p>料金はすべて税込です。髪の長さや施術内容により料金が変わる場合は、施術前にお伝えします。</p>
           <a className="button ivory" href="tel:0428244009"><span>電話で相談する</span><small>0428-24-4009</small></a>
         </div>

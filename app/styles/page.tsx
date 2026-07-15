@@ -3,8 +3,14 @@ import Image from "next/image";
 import { styles } from "../style-data";
 
 export const metadata: Metadata = {
-  title: "スタイルギャラリー｜ヘアサロンリザーブ松竹",
-  description: "松竹が仕立てたフェード、濡れパン、アイロンパーマ、クラシックスタイルの作品集。",
+  title: "フェード・濡れパン・パンチパーマの髪型｜松竹スタイル",
+  description: "青梅市の床屋・理容室、松竹のスタイルギャラリー。フェードカット、スキンフェード、濡れパン、パンチパーマ、アイロンパーマの仕上がりをご覧いただけます。",
+  alternates: { canonical: "/styles" },
+  openGraph: {
+    title: "フェード・濡れパン・パンチパーマの髪型｜松竹スタイル",
+    description: "青梅市・東青梅のバーバー松竹が仕立てる、男のためのスタイルギャラリー。",
+    url: "https://shochiku-barber.com/styles",
+  },
 };
 
 export default function StyleArchive() {
@@ -26,11 +32,11 @@ export default function StyleArchive() {
       <section className="gallery-intro">
         <div>
           <p className="gallery-strap">SHOCHIKU / STYLE ARCHIVE</p>
-          <h1>仕上がりが、<br />答え。</h1>
+          <h1><span>仕上がりが、</span><span>答え。</span></h1>
         </div>
         <div className="gallery-intro-note">
           <span>01 — 12</span>
-          <p>骨格、髪質、暮らし方まで読む。<br />流行で終わらない、その男だけの輪郭。</p>
+          <p>青梅市の床屋・松竹が仕立てる、フェード、濡れパン、パンチパーマ。<br />流行で終わらない、その男だけの輪郭。</p>
           <a href="/">← ホームへ戻る</a>
         </div>
       </section>

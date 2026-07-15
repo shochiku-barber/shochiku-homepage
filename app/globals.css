@@ -33,7 +33,7 @@ img { display: block; }
 .mobile-menu { display: none; }
 
 .hero { min-height: 100svh; position: relative; overflow: hidden; display: flex; align-items: center; color: var(--ivory); background: #2b2d2d; }
-.hero::before { content: ""; position: absolute; z-index: 2; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(8,9,9,.82) 0%, rgba(8,9,9,.62) 35%, rgba(8,9,9,.18) 68%, rgba(8,9,9,.08) 100%), linear-gradient(0deg, rgba(8,9,9,.58) 0%, transparent 42%); }
+.hero::before { content: ""; position: absolute; z-index: 2; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(8,9,9,.82) 0%, rgba(8,9,9,.62) 35%, rgba(8,9,9,.18) 68%, rgba(8,9,9,.06) 100%), linear-gradient(0deg, rgba(8,9,9,.36) 0%, transparent 42%); }
 .hero::after { content: ""; position: absolute; z-index: 3; inset: 0; pointer-events: none; opacity: .12; background: repeating-linear-gradient(104deg, transparent 0 2px, rgba(255,255,255,.08) 2px 3px, transparent 3px 8px); mix-blend-mode: overlay; }
 .hero-copy { position: relative; z-index: 4; width: min(760px, 58vw); padding: 148px 0 100px 6vw; }
 .eyebrow { display: flex; align-items: center; gap: 24px; margin: 0 0 34px; font: 700 10px/1 var(--sans); letter-spacing: .38em; color: rgba(245,242,232,.78); }
@@ -52,7 +52,7 @@ img { display: block; }
 .text-link { font-size: 11px; font-weight: 700; letter-spacing: .16em; padding: 12px 0; border-bottom: 1px solid rgba(245,242,232,.35); }
 .text-link b { margin-left: 18px; font-size: 17px; }
 .hero-style-wrap { position: absolute; z-index: 1; inset: 0; animation: portrait-in 1.4s cubic-bezier(.2,.7,.2,1) both; background: #3a3b3b; }
-.hero-style-wrap img { object-fit: cover; object-position: 66% 40%; filter: grayscale(.94) contrast(.94) brightness(1.16); }
+.hero-style-wrap img { object-fit: cover; object-position: 66% 40%; filter: grayscale(.94) contrast(.92) brightness(1.34); }
 .hero-technique { position: absolute; z-index: 4; right: 5.4vw; bottom: 42px; margin: 0; display: grid; justify-items: end; gap: 8px; color: rgba(245,242,232,.82); text-shadow: 0 2px 18px rgba(0,0,0,.7); }
 .hero-technique span { font: 700 7px/1 var(--sans); letter-spacing: .34em; }
 .hero-technique strong { font: 600 12px/1 var(--sans); letter-spacing: .2em; }
@@ -72,6 +72,7 @@ img { display: block; }
 .kicker { margin: 0 0 22px; font: 600 13px/1.5 var(--serif); letter-spacing: .24em; }
 .spirit { display: grid; grid-template-columns: 15% 48% 37%; gap: 0; background: var(--paper); }
 .spirit-heading h2, .section-head h2, .menu-intro h2, .profile h2, .access h2 { margin: 0; font: 600 clamp(44px, 5.5vw, 90px)/1.25 var(--serif); letter-spacing: -.055em; }
+.spirit-heading h2 { font-size: clamp(36px, 4.25vw, 78px); white-space: nowrap; }
 .spirit-body { align-self: end; padding: 0 0 6px 4vw; border-left: 1px solid var(--line); }
 .spirit-body > p { margin: 0 0 22px; max-width: 38em; font: 400 14px/2.15 var(--serif); letter-spacing: .06em; }
 .signature { margin-top: 34px; display: flex; align-items: baseline; gap: 16px; }
@@ -198,6 +199,13 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
 @keyframes portrait-in { from { opacity: 0; transform: scale(1.06) translateX(3%); } to { opacity: 1; transform: none; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+@media (min-width: 981px) {
+  .hero-style-wrap { left: 40%; background: #171919; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 100%); }
+  .hero-style-wrap img { object-position: 50% 44%; }
+  .hero-copy { width: min(760px, 54vw); }
+  .hero h1 { font-size: clamp(52px, 5.7vw, 96px); white-space: nowrap; }
+}
+
 @media (max-width: 980px) {
   .site-header { grid-template-columns: 1fr auto; padding: 0 22px; }
   .desktop-nav, .header-reserve { display: none; }
@@ -258,7 +266,8 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
   .hero-technique { display: none; }
   .ticker { height: 48px; }
   .section { padding: 80px 22px; }
-  .spirit-heading h2, .menu-intro h2, .access h2 { font-size: 12vw; }
+  .spirit-heading h2 { font-size: clamp(30px, 9.6vw, 42px); }
+  .menu-intro h2, .access h2 { font-size: 12vw; }
   .access-title .salon-name { font-size: 10vw; }
   .access-title .salon-name span { margin-left: 1.2em; }
   .access-map { margin-top: 34px; }

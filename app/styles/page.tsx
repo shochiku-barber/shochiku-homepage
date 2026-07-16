@@ -35,7 +35,7 @@ export default function StyleArchive() {
           <h1><span>仕上がりが、</span><span>答え。</span></h1>
         </div>
         <div className="gallery-intro-note">
-          <span>01 — 12</span>
+          <span>01 — {String(styles.length).padStart(2, "0")}</span>
           <p>青梅市の床屋・松竹が仕立てる、フェード、濡れパン、パンチパーマ。<br />流行で終わらない、その男だけの輪郭。</p>
           <a href="/">← ホームへ戻る</a>
         </div>

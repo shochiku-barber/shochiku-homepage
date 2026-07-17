@@ -44,8 +44,15 @@ export default function StyleArchive() {
       <section className="gallery-grid-full" aria-label="松竹のスタイル作品集">
         {styles.map((style, index) => (
           <figure className="gallery-work" key={style.src}>
-            <Image src={style.src} alt={style.alt} fill sizes="(max-width: 720px) 100vw, 50vw" />
-            <figcaption><span>{style.alt}</span><b>{String(index + 1).padStart(2, "0")}</b></figcaption>
+            <Image
+              src={style.src}
+              alt={style.alt}
+              fill
+              sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+            />
+            <figcaption>
+              <b>{String(index + 1).padStart(2, "0")}</b>
+            </figcaption>
           </figure>
         ))}
       </section>

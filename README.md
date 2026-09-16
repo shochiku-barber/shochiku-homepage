@@ -120,3 +120,18 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
   **入れるまでは D1 に残るだけ**（申し込みは失われない）
 
 出すときは、店舗案内の「電話で予約する」の隣に `/reserve` への導線を足す。
+
+### 管理室（/kanri）
+
+弟さんが文章・料金・写真を自分で直せる。合言葉は Worker のシークレット `KANRI_KEY`
+（控えは `deploy/合言葉.txt`。**git には入れない**）。
+
+- 画面：`app/kanri/page.tsx`（直す欄を足すときは `SECTIONS` に1行）
+- 裏側：`app/api/kanri/route.ts`（check / load / save / 写真の受け取り）
+- 中身：`app/content.ts` に**既定値**、直したものは KV `CONTENT` の `content` に入る
+  → **KVが空でもサイトは既定値で動く**（倉庫が落ちても店は開ける）
+- 写真：KV に `img:<id>` で入り、`/img/<id>` で配る
+- ページは `export const dynamic = "force-dynamic"` で毎回 KV を読む
+
+直せるもの：トップの見出し／心意気／仕上がりの見出し／料金（見出し・注記・品目と値段）／
+店主の紹介／店舗案内（住所・営業時間・定休日・電話）／仕上がりの写真（入替・並べ替え・追加・削除）

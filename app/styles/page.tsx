@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { styles } from "../style-data";
+import { readContent } from "../content";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "フェード・濡れパン・パンチパーマの髪型｜松竹スタイル",
@@ -13,7 +15,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function StyleArchive() {
+export default async function StyleArchive() {
+  const { styles } = await readContent();
+
   return (
     <main className="gallery-page">
       <header className="site-header gallery-header">

@@ -11,6 +11,10 @@
   "no_bundle": true,
   "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
   "assets": { "directory": "dist/client", "binding": "ASSETS" },
+  // 管理室（/kanri）で直した文章・料金・写真を入れる倉庫
+  "kv_namespaces": [
+    { "binding": "CONTENT", "id": "e6f25c07da294853b83392e5dbb302a8" }
+  ],
   // 予約の申し込みを入れる倉庫。まだ導線は出していないが、器は先に用意した。
   "d1_databases": [
     { "binding": "DB", "database_name": "shochiku-reserve", "database_id": "8ad7cbe5-c972-4228-a269-922b321a7046" }

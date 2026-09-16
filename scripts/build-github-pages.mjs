@@ -1,7 +1,9 @@
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const sourceBase = "https://shochiku-homepage.shochiku-barber.workers.dev";
+// 2026-09-16：置き先をノエル側のアカウントへ移したので、汲む先もこちらに変えた。
+// 旧 shochiku-barber.workers.dev は ChatGPT 側に残っていて中身が古い。
+const sourceBase = "https://shochiku-homepage.hey2-ok-oan-0101.workers.dev";
 const outDir = path.resolve("docs");
 const clientDir = path.resolve("dist/client");
 

@@ -74,6 +74,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           },
         ],
         hasMap: "https://maps.app.goo.gl/ZiTpnex6NHfdcQHy9",
+        // 支払い方法と駐車場。Googleのビジネス情報と食い違わないよう、事実だけを書く。
+        paymentAccepted: "現金, クレジットカード, 電子マネー, QRコード決済",
+        currenciesAccepted: "JPY",
+        amenityFeature: [
+          { "@type": "LocationFeatureSpecification", name: "駐車場（3台）", value: true },
+        ],
         // 予約は電話が本線。検索結果から直接かけられるようにする。
         potentialAction: {
           "@type": "ReserveAction",

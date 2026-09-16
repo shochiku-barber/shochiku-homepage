@@ -7,30 +7,8 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   const { texts: t, menu: menuGroups, styles } = await readContent();
 
-  /* よくあるご質問。空欄にしたものは出さない（管理室で消せるように） */
-  const faqItems = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    .map((n) => ({ q: t[`faq.q${n}`] ?? "", a: t[`faq.a${n}`] ?? "" }))
-    .filter((item) => item.q.trim() && item.a.trim());
-
-  /* 検索結果に質問と答えをそのまま出してもらうための印 */
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
   return (
     <main>
-      {faqItems.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData).replace(/</g, "\\u003c") }}
-        />
-      )}
       <header className="site-header">
         <a className="brand" href="#top" aria-label="松竹 ホームへ">
           <img src="/images/shochiku-emblem.png" alt="松竹の印" width="56" height="56" />
@@ -38,9 +16,8 @@ export default async function Home() {
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="#spirit">心意気</a>
           <a href="/styles">仕上がり</a>
-          <a href="#craft">仕事</a>
           <a href="#menu">料金</a>
-          <a href="#faq">よくある質問</a>
+          <a href="/faq">よくある質問</a>
           <a href="#access">店舗案内</a>
         </nav>
         <a className="header-reserve" href="tel:0428244009">電話予約</a>
@@ -50,7 +27,7 @@ export default async function Home() {
             <a href="#spirit">心意気</a>
             <a href="/styles">仕上がり</a>
             <a href="#menu">料金</a>
-            <a href="#faq">よくある質問</a>
+            <a href="/faq">よくある質問</a>
             <a href="#access">店舗案内</a>
             <a href="tel:0428244009">電話予約</a>
           </nav>
@@ -110,29 +87,9 @@ export default async function Home() {
         <a className="archive-link" href="/styles"><span>すべての仕上がりを見る</span><b>STYLE ARCHIVE</b><i>→</i></a>
       </section>
 
-      <section className="craft section" id="craft">
-        <div className="craft-head">
-          <div className="section-index"><span>03</span><p>OUR CRAFT</p></div>
-          <p className="kicker">{t["craft.kicker"]}</p>
-          <h2>{t["craft.title1"]}<br />{t["craft.title2"]}</h2>
-        </div>
-        <div className="craft-body">
-          <p className="craft-lead">{t["craft.lead"]}</p>
-          <div className="craft-list">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <article className="craft-item" key={n}>
-                <span>{String(n).padStart(2, "0")}</span>
-                <h3>{t[`craft.${n}.name`]}</h3>
-                <p>{t[`craft.${n}.body`]}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="menu section" id="menu">
         <div className="menu-intro">
-          <div className="section-index light"><span>04</span><p>MENU</p></div>
+          <div className="section-index light"><span>03</span><p>MENU</p></div>
           <p className="kicker">{t["menu.kicker"]}</p>
           <h2><span>{t["menu.title1"]}</span><span>{t["menu.title2"]}</span></h2>
           <p>{t["menu.note"]}</p>
@@ -163,7 +120,7 @@ export default async function Home() {
           <p className="profile-sign"><span>二代目</span><strong>{t["profile.name"]}</strong><small>{t["profile.en"]}</small></p>
         </div>
         <div className="profile-copy">
-          <div className="section-index"><span>05</span><p>BARBER</p></div>
+          <div className="section-index"><span>04</span><p>BARBER</p></div>
           <p className="kicker">SECOND GENERATION</p>
           <h2>{t["profile.name"]}</h2>
           <p className="profile-en">{t["profile.en"]}</p>
@@ -177,25 +134,9 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="faq section" id="faq">
-        <div className="faq-head">
-          <div className="section-index"><span>06</span><p>FAQ</p></div>
-          <p className="kicker">{t["faq.kicker"]}</p>
-          <h2>{t["faq.title1"]}<br />{t["faq.title2"]}</h2>
-        </div>
-        <div className="faq-list">
-          {faqItems.map((item, index) => (
-            <details className="faq-item" key={item.q} open={index === 0}>
-              <summary><span>Q</span><h3>{item.q}</h3><i /></summary>
-              <p>{item.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
       <section className="access section" id="access">
         <div className="access-title">
-          <div className="section-index"><span>07</span><p>ACCESS</p></div>
+          <div className="section-index"><span>05</span><p>ACCESS</p></div>
           <p className="kicker">{t["access.kicker"]}</p>
           <h2 className="salon-name">{t["access.title1"]}<br /><span>{t["access.title2"]}</span></h2>
           <div className="access-map">
@@ -225,9 +166,22 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* 携帯のメニューは、行を押したら閉じる（開いたまま覆い被さらないように） */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('.mobile-menu nav a');if(!a)return;var d=a.closest('details');if(d)d.open=false;},true);",
+        }}
+      />
       <footer>
         <div className="footer-mark"><img src="/images/shochiku-emblem.png" alt="松竹の印" width="112" height="112" /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
         <p className="footer-copy">受け継ぐ技。研ぎ澄ます粋。</p>
+        <nav className="footer-nav" aria-label="フッターナビゲーション">
+          <a href="/styles">仕上がり</a>
+          <a href="/faq">よくあるご質問</a>
+          <a href="#menu">料金</a>
+          <a href="#access">店舗案内</a>
+        </nav>
         <div className="footer-meta"><a href="tel:0428244009">TEL {t["access.tel"]}</a><span>© SHOCHIKU BARBER</span></div>
       </footer>
     </main>

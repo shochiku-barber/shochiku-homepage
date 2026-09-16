@@ -10,6 +10,7 @@ const clientDir = path.resolve("dist/client");
 const pages = [
   { url: "/", file: "index.html" },
   { url: "/styles", file: "styles/index.html" },
+  { url: "/faq", file: "faq/index.html" },
 ];
 
 function staticizeHtml(html) {
@@ -66,6 +67,9 @@ await writeFile(
   </url>
   <url>
     <loc>https://shochiku-barber.com/styles</loc>
+  </url>
+  <url>
+    <loc>https://shochiku-barber.com/faq</loc>
   </url>
 </urlset>
 `,

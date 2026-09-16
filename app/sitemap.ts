@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://shochiku-barber.com/faq",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://shochiku-barber.com/styles",
       lastModified: new Date(),
       changeFrequency: "monthly",

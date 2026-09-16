@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { readContent } from "../content";
+import { SiteFooter } from "../site-footer";
 
 export const dynamic = "force-dynamic";
 
@@ -79,7 +80,25 @@ export default async function Faq() {
             </summary>
             <div className="faq-answer">
               <span className="faq-mark">A</span>
-              <p>{item.a}</p>
+              <div>
+                <p>{item.a}</p>
+                {/* 答えの中でLINEに触れているなら、その場から押せるようにする */}
+                {item.a.includes("LINE") && (
+                  <div className="faq-actions">
+                    <a
+                      className="faq-line"
+                      href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>LINEで予約・相談する</span><i>↗</i>
+                    </a>
+                    <a className="faq-tel" href="tel:0428244009">
+                      <span>電話する</span><b>{t["access.tel"]}</b>
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           </details>
         ))}
@@ -92,6 +111,8 @@ export default async function Faq() {
           <a href="tel:0428244009">電話予約 {t["access.tel"]} <b>→</b></a>
         </div>
       </section>
+
+      <SiteFooter texts={t} />
     </main>
   );
 }

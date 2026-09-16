@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { readContent } from "./content";
+import { SiteFooter } from "./site-footer";
 
 /* 管理室で直した中身を毎回読むため、静的な作り置きはしない */
 export const dynamic = "force-dynamic";
@@ -173,17 +174,7 @@ export default async function Home() {
             "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('.mobile-menu nav a');if(!a)return;var d=a.closest('details');if(d)d.open=false;},true);",
         }}
       />
-      <footer>
-        <div className="footer-mark"><img src="/images/shochiku-emblem.png" alt="松竹の印" width="112" height="112" /><p><strong>松竹</strong><span>HAIR SALON RESERVE</span></p></div>
-        <p className="footer-copy">受け継ぐ技。研ぎ澄ます粋。</p>
-        <nav className="footer-nav" aria-label="フッターナビゲーション">
-          <a href="/styles">仕上がり</a>
-          <a href="/faq">よくあるご質問</a>
-          <a href="#menu">料金</a>
-          <a href="#access">店舗案内</a>
-        </nav>
-        <div className="footer-meta"><a href="tel:0428244009">TEL {t["access.tel"]}</a><span>© SHOCHIKU BARBER</span></div>
-      </footer>
+      <SiteFooter texts={t} />
     </main>
   );
 }

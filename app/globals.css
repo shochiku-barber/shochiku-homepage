@@ -213,6 +213,15 @@ img { display: block; }
 .faq-qa[open] .faq-sign::after { transform: rotate(0deg); }
 .faq-answer { display: grid; grid-template-columns: 44px 1fr; padding: 0 44px 34px 0; animation: faq-open .32s cubic-bezier(.2,.7,.2,1) both; }
 .faq-answer p { margin: 0; font: 400 14px/2.15 var(--serif); letter-spacing: .05em; color: #4a4d4a; }
+.faq-answer > div { min-width: 0; }
+.faq-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
+.faq-line, .faq-tel { display: inline-flex; align-items: center; gap: 16px; padding: 13px 20px; font: 700 12px/1 var(--sans); letter-spacing: .1em; border: 1px solid currentColor; transition: transform .2s, background .2s, color .2s; }
+.faq-line { color: #fff; background: #06b94e; border-color: #06b94e; }
+.faq-line i { font-style: normal; font-size: 15px; }
+.faq-tel { color: var(--ink); }
+.faq-tel b { font-size: 11px; letter-spacing: .06em; opacity: .66; }
+.faq-line:hover, .faq-tel:hover { transform: translateY(-2px); }
+.faq-tel:hover { color: var(--ivory); background: var(--ink); }
 @keyframes faq-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
 footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
@@ -222,6 +231,13 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
 .footer-mark strong { font: 600 38px/1 var(--serif); letter-spacing: .2em; }
 .footer-mark span { margin-top: 10px; font-size: 8px; letter-spacing: .32em; color: var(--silver); }
 .footer-copy { margin: 70px 0 80px; font: 600 clamp(24px, 4.5vw, 64px)/1.2 var(--serif); letter-spacing: -.055em; white-space: nowrap; }
+.footer-about { margin-bottom: 44px; padding-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 6vw; border-top: 1px solid rgba(245,242,232,.16); }
+.footer-about > p { margin: 0; max-width: 40em; font: 400 12px/2.15 var(--serif); letter-spacing: .05em; color: rgba(245,242,232,.7); }
+.footer-about dl { margin: 0; align-self: start; }
+.footer-about dl div { display: grid; grid-template-columns: 72px 1fr; padding: 9px 0; border-bottom: 1px solid rgba(245,242,232,.12); }
+.footer-about dt { font: 700 9px/1.9 var(--sans); letter-spacing: .18em; color: var(--silver); }
+.footer-about dd { margin: 0; font: 400 12px/1.9 var(--serif); letter-spacing: .05em; color: rgba(245,242,232,.86); }
+.footer-about dd a:hover { color: var(--ivory); text-decoration: underline; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 28px; margin-bottom: 30px; font: 700 11px/1 var(--sans); letter-spacing: .14em; color: rgba(245,242,232,.82); }
 .footer-nav a:hover { color: var(--ivory); }
 .footer-meta { display: flex; justify-content: space-between; padding-top: 26px; border-top: 1px solid rgba(245,242,232,.16); font-size: 8px; letter-spacing: .22em; color: var(--silver); }
@@ -332,6 +348,10 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
   footer { padding: 60px 22px 28px; }
   .footer-mark img { width: 78px; height: 78px; }
   .footer-copy { margin: 55px 0 65px; font-size: clamp(22px, 6.6vw, 30px); }
+  .footer-about { grid-template-columns: 1fr; gap: 26px; }
+  .footer-about dl div { grid-template-columns: 62px 1fr; }
+  .faq-actions { flex-direction: column; align-items: stretch; }
+  .faq-line, .faq-tel { justify-content: space-between; }
   .footer-meta { flex-direction: column; gap: 12px; }
 }
 

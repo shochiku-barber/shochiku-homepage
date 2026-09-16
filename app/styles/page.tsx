@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { readContent } from "../content";
+import { SiteFooter } from "../site-footer";
 
 export const dynamic = "force-dynamic";
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function StyleArchive() {
-  const { styles } = await readContent();
+  const { texts: t, styles } = await readContent();
 
   return (
     <main className="gallery-page">
@@ -68,6 +69,8 @@ export default async function StyleArchive() {
           <a href="tel:0428244009">電話予約 0428-24-4009 <b>→</b></a>
         </div>
       </section>
+
+      <SiteFooter texts={t} />
     </main>
   );
 }

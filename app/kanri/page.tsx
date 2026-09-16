@@ -113,6 +113,13 @@ const SECTIONS: { title: string; note?: string; fields: [string, string, ("line"
       ["access.payment", "お支払い方法"],
     ],
   },
+  {
+    title: "フッターの説明文",
+    note: "どのページの一番下にも出る、お店の説明です。検索にも読まれます。",
+    fields: [
+      ["footer.about", "説明文", "area"],
+    ],
+  },
 ];
 
 export default function Kanri() {

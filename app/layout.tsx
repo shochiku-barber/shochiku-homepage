@@ -63,6 +63,31 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           longitude: 139.2767353,
         },
         areaServed: ["青梅市", "東京都"],
+        // 営業時間。Googleが「いま開いているか」を判断する材料になる。
+        // 月曜定休のため火〜日で書く（第2・第3火曜の休みは規則で表せないので本文に委ねる）。
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            opens: "09:00",
+            closes: "19:00",
+          },
+        ],
+        hasMap: "https://maps.app.goo.gl/ZiTpnex6NHfdcQHy9",
+        // 予約は電話が本線。検索結果から直接かけられるようにする。
+        potentialAction: {
+          "@type": "ReserveAction",
+          name: "電話で予約する",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "tel:+81428244009",
+            inLanguage: "ja",
+            actionPlatform: [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform",
+            ],
+          },
+        },
         sameAs: [
           "https://www.instagram.com/reserve_shochiku",
           "https://maps.app.goo.gl/ZiTpnex6NHfdcQHy9",

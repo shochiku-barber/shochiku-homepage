@@ -1,0 +1,25 @@
+{
+  // ヘアーサロンリザーブ松竹（shochiku-barber.com）
+  // 我が君（ノエル側）のアカウント。身内のサイトなのでこちらに置く。
+  // 中身は dist/ に組み上がったもの。build が毎回 dist/server/wrangler.json も
+  // 作るが、そちらには画像変換(IMAGES)の口が無いので、この設定で配る。
+  "name": "shochiku-homepage",
+  "account_id": "dbabbabea3c04ac6d64f48273cb18b99",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "no_bundle": true,
+  "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
+  "assets": { "directory": "dist/client", "binding": "ASSETS" },
+  // 予約の申し込みを入れる倉庫。まだ導線は出していないが、器は先に用意した。
+  "d1_databases": [
+    { "binding": "DB", "database_name": "shochiku-reserve", "database_id": "8ad7cbe5-c972-4228-a269-922b321a7046" }
+  ],
+  // 店へ予約の知らせを出す口。shochiku-barber.com を Cloudflare に載せてから効く。
+  "send_email": [
+    { "name": "EMAIL" }
+  ],
+  // 写真を画面の大きさに合わせて縮めて配る（/_vinext/image）
+  "images": { "binding": "IMAGES" },
+  "observability": { "enabled": true }
+}

@@ -96,3 +96,27 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
+---
+
+## Cloudflare への移設（2026-09-16）
+
+このサイトは GitHub Pages（`docs/` の静的な写し）で公開していたが、
+中身はもともと Cloudflare Workers で動く造り（`worker/`・D1・画像変換）だったため、
+**本来の場所へ戻した。**
+
+- 置き先：**我が君（ノエル側）の Cloudflare アカウント**（身内のサイトのため）
+- Worker 名：`shochiku-homepage`
+- 配備：`bash tools/deploy.sh`（`-c wrangler.jsonc` を必ず付ける。付けないと設定が読まれない）
+- 画像変換 `/_vinext/image` には `images` binding が要る（無いと 500 で写真が出ない）
+
+### 予約フォーム（まだ表に出していない）
+
+- 画面：`/reserve`（どこからもリンクしていない・`noindex`）
+- 受け口：`app/api/reserve/route.ts`
+- 倉庫：D1 `shochiku-reserve`（表 `reservations`）
+- 店への知らせ：`app/api/reserve/route.ts` の `SHOP_EMAIL` に受け取り先を入れ、
+  Cloudflare 側でその宛先を「検証済み」にすると出るようになる。
+  **入れるまでは D1 に残るだけ**（申し込みは失われない）
+
+出すときは、店舗案内の「電話で予約する」の隣に `/reserve` への導線を足す。

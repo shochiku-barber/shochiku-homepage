@@ -304,3 +304,25 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* ── 予約フォーム（まだ導線は出していない） ───────────────── */
+.reserve-page{min-height:100vh;padding:96px 22px 120px;background:#0f0f0f;color:#f2efe9}
+.reserve-box{max-width:620px;margin:0 auto}
+.reserve-page .kicker{font-size:11px;letter-spacing:.22em;opacity:.6;margin:0 0 10px}
+.reserve-page h1{font-size:30px;line-height:1.4;margin:0 0 18px}
+.reserve-lead{font-size:14px;line-height:2;opacity:.8;margin:0 0 34px}
+.reserve-form{display:grid;gap:20px}
+.reserve-form label{display:grid;gap:7px}
+.reserve-form label>span{font-size:12px;letter-spacing:.08em;opacity:.65}
+.reserve-form input,.reserve-form select,.reserve-form textarea{
+  width:100%;padding:12px 14px;background:#191919;color:#f2efe9;
+  border:1px solid #333;border-radius:2px;font:inherit;font-size:15px;outline:none}
+.reserve-form input:focus,.reserve-form select:focus,.reserve-form textarea:focus{border-color:#8a8a8a}
+.reserve-form textarea{resize:vertical;line-height:1.9}
+.reserve-form button{margin-top:6px;justify-content:center}
+.reserve-form button[disabled]{opacity:.5}
+.reserve-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.reserve-error{color:#e2a08a;font-size:13px;line-height:1.9;margin:4px 0 0}
+.reserve-note{margin:34px 0 0;font-size:12.5px;line-height:2;opacity:.6}
+.reserve-note a,.reserve-page a{color:inherit}
+@media(max-width:600px){.reserve-page{padding:72px 18px 96px}.reserve-page h1{font-size:25px}}

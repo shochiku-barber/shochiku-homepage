@@ -70,11 +70,18 @@ export default async function Faq() {
       </section>
 
       <section className="faq-body" aria-label="よくあるご質問">
-        {items.map((item) => (
-          <article className="faq-qa" key={item.q}>
-            <h2><span>Q</span>{item.q}</h2>
-            <p><span>A</span>{item.a}</p>
-          </article>
+        {items.map((item, index) => (
+          <details className="faq-qa" key={item.q} open={index === 0}>
+            <summary>
+              <span className="faq-mark">Q</span>
+              <h2>{item.q}</h2>
+              <i className="faq-sign" aria-hidden="true" />
+            </summary>
+            <div className="faq-answer">
+              <span className="faq-mark">A</span>
+              <p>{item.a}</p>
+            </div>
+          </details>
         ))}
       </section>
 

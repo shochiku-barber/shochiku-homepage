@@ -55,6 +55,25 @@ async function guard(request: Request) {
 
 const s = (v: unknown, max: number) => String(v ?? "").slice(0, max);
 
+/** 写真を幅1200・JPEGに縮める。できなければ元のまま返す。 */
+async function shrinkImage(bytes: ArrayBuffer, type: string): Promise<{ bytes: ArrayBuffer; type: string }> {
+  const images = (env as unknown as { IMAGES?: ImagesBinding }).IMAGES;
+  if (!images) return { bytes, type };
+  try {
+    const result = await images
+      .input(new Response(bytes).body!)
+      .transform({ width: 1200, fit: "scale-down" })
+      .output({ format: "image/jpeg", quality: 72 });
+    const out = await result.response().arrayBuffer();
+    // 縮めたほうが大きくなったなら、元を使う
+    return out.byteLength < bytes.byteLength
+      ? { bytes: out, type: "image/jpeg" }
+      : { bytes, type };
+  } catch {
+    return { bytes, type };
+  }
+}
+
 export async function POST(request: Request) {
   const blocked = await guard(request);
   if (blocked) return blocked;
@@ -70,8 +89,13 @@ export async function POST(request: Request) {
     if (!ALLOWED_IMAGE.includes(file.type)) return json({ error: "JPEG / PNG / WebP のみ受け付けます" }, 400);
     const bytes = await file.arrayBuffer();
     if (bytes.byteLength > MAX_IMAGE) return json({ error: "写真が大きすぎます（5MBまで）" }, 400);
+
+    // 携帯で撮った写真はそのままだと 3〜5MB あり、載せるとページが開かなくなる。
+    // 受け取った時点で幅1200まで縮め、JPEGにしておく（元より大きくはしない）。
+    // 変換の口（IMAGES）が使えないときは、受け取ったものをそのまま入れる。
+    const shrunk = await shrinkImage(bytes, file.type);
     const id = crypto.randomUUID();
-    await kv.put(`img:${id}`, bytes, { metadata: { type: file.type } });
+    await kv.put(`img:${id}`, shrunk.bytes, { metadata: { type: shrunk.type } });
     return json({ ok: true, url: `/img/${id}` });
   }
 

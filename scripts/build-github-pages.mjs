@@ -12,6 +12,7 @@ const pages = [
   { url: "/", file: "index.html" },
   { url: "/styles", file: "styles/index.html" },
   { url: "/faq", file: "faq/index.html" },
+  { url: "/price", file: "price/index.html" },
 ];
 
 function staticizeHtml(html) {

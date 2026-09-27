@@ -64,6 +64,8 @@ img { display: block; }
 .ticker div { font: 800 15px/1 var(--sans); letter-spacing: .16em; animation: marquee 22s linear infinite; }
 .ticker i { margin: 0 36px; font-style: normal; font-size: 8px; }
 
+/* 固定ヘッダーの高さぶん、アンカー移動の着地位置を下げる（無いと見出しがヘッダーの裏に隠れる） */
+.section, #top { scroll-margin-top: 92px; }
 .section { padding: 130px 6vw; }
 .section-index { display: flex; align-items: center; gap: 12px; color: rgba(11,12,13,.56); }
 .section-index span { font: 700 11px/1 var(--sans); }
@@ -259,7 +261,10 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
   .mobile-menu summary { width: 44px; height: 44px; display: grid; place-content: center; gap: 7px; cursor: pointer; list-style: none; border: 1px solid rgba(245,242,232,.35); }
   .mobile-menu summary::-webkit-details-marker { display: none; }
   .mobile-menu i { display: block; width: 20px; height: 1px; background: var(--ivory); }
-  .mobile-menu nav { position: fixed; inset: 78px 0 auto; padding: 32px 24px; display: grid; gap: 0; background: rgba(8,9,10,.98); border-bottom: 1px solid rgba(245,242,232,.2); }
+  /* details が閉じている間は完全に無くす。position:fixed の子は details の折りたたみを
+     突き破って残ることがあり、それが透明な当たり判定として他の操作を奪う原因になっていた */
+  .mobile-menu:not([open]) nav { display: none !important; }
+  .mobile-menu[open] nav { position: fixed; inset: 78px 0 auto; padding: 32px 24px; display: grid; gap: 0; background: rgba(8,9,10,.98); border-bottom: 1px solid rgba(245,242,232,.2); }
   .mobile-menu nav a { padding: 16px 0; font: 600 16px/1 var(--serif); border-bottom: 1px solid rgba(245,242,232,.14); }
   .hero { min-height: 100svh; }
   .hero-copy { width: 74vw; padding: 138px 0 96px 7vw; }
@@ -293,11 +298,12 @@ footer { padding: 75px 6vw 36px; color: var(--ivory); background: #070809; }
 
 @media (max-width: 620px) {
   .site-header { height: 62px; padding: 0 18px; }
+  .section, #top { scroll-margin-top: 62px; }
   .brand img { width: 40px; height: 40px; }
   .brand b { font-size: 18px; }
   .brand small { font-size: 6px; }
   .mobile-menu summary { width: 40px; height: 40px; }
-  .mobile-menu nav { top: 62px; }
+  .mobile-menu[open] nav { top: 62px; }
   .hero::before { background: linear-gradient(90deg, rgba(8,9,9,.76) 0%, rgba(8,9,9,.34) 72%, rgba(8,9,9,.12) 100%), linear-gradient(0deg, rgba(8,9,9,.86) 0%, rgba(8,9,9,.28) 62%, rgba(8,9,9,.12) 100%); }
   .hero-copy { width: 100%; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 92px 20px 34px; }
   .eyebrow { gap: 10px; margin-bottom: 16px; font-size: 7px; letter-spacing: .2em; }

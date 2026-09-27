@@ -56,6 +56,16 @@ export default async function Faq() {
           <a href="/#access">店舗案内</a>
         </nav>
         <a className="header-reserve" href="tel:0428244009">電話予約</a>
+        <details className="mobile-menu">
+          <summary aria-label="メニューを開く"><i /><i /></summary>
+          <nav aria-label="モバイルナビゲーション">
+            <a href="/">ホーム</a>
+            <a href="/styles">仕上がり</a>
+            <a href="/#menu">料金</a>
+            <a href="/#access">店舗案内</a>
+            <a href="tel:0428244009">電話予約</a>
+          </nav>
+        </details>
       </header>
 
       <section className="faq-intro">
@@ -112,6 +122,13 @@ export default async function Faq() {
         </div>
       </section>
 
+      {/* 携帯のメニューは、行を押したら閉じる（開いたまま覆い被さらないように） */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('.mobile-menu nav a');if(!a)return;var d=a.closest('details');if(d)d.open=false;},true);",
+        }}
+      />
       <SiteFooter texts={t} />
     </main>
   );

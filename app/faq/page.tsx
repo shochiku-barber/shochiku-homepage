@@ -52,7 +52,7 @@ export default async function Faq() {
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="/">ホーム</a>
           <a href="/styles">仕上がり</a>
-          <a href="/#menu">料金</a>
+          <a href="/price">料金</a>
           <a href="/#access">店舗案内</a>
         </nav>
         <a className="header-reserve" href="tel:0428244009">電話予約</a>
@@ -61,7 +61,7 @@ export default async function Faq() {
           <nav aria-label="モバイルナビゲーション">
             <a href="/">ホーム</a>
             <a href="/styles">仕上がり</a>
-            <a href="/#menu">料金</a>
+            <a href="/price">料金</a>
             <a href="/#access">店舗案内</a>
             <a href="tel:0428244009">電話予約</a>
           </nav>

@@ -30,7 +30,7 @@ export function SiteFooter({ texts: t }: { texts: Record<string, string> }) {
         <a href="/">ホーム</a>
         <a href="/styles">仕上がり</a>
         <a href="/faq">よくあるご質問</a>
-        <a href="/#menu">料金</a>
+        <a href="/price">料金</a>
         <a href="/#access">店舗案内</a>
         <a href="https://www.instagram.com/reserve_shochiku" target="_blank" rel="noreferrer">Instagram</a>
       </nav>

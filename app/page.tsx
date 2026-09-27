@@ -6,7 +6,7 @@ import { SiteFooter } from "./site-footer";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { texts: t, menu: menuGroups, styles } = await readContent();
+  const { texts: t, styles } = await readContent();
 
   return (
     <main>
@@ -17,7 +17,7 @@ export default async function Home() {
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="#spirit">心意気</a>
           <a href="/styles">仕上がり</a>
-          <a href="#menu">料金</a>
+          <a href="/price">料金</a>
           <a href="/faq">よくある質問</a>
           <a href="#access">店舗案内</a>
         </nav>
@@ -27,7 +27,7 @@ export default async function Home() {
           <nav aria-label="モバイルナビゲーション">
             <a href="#spirit">心意気</a>
             <a href="/styles">仕上がり</a>
-            <a href="#menu">料金</a>
+            <a href="/price">料金</a>
             <a href="/faq">よくある質問</a>
             <a href="#access">店舗案内</a>
             <a href="tel:0428244009">電話予約</a>
@@ -88,31 +88,8 @@ export default async function Home() {
         <a className="archive-link" href="/styles"><span>すべての仕上がりを見る</span><b>STYLE ARCHIVE</b><i>→</i></a>
       </section>
 
-      <section className="menu section" id="menu">
-        <div className="menu-intro">
-          <div className="section-index light"><span>03</span><p>MENU</p></div>
-          <p className="kicker">{t["menu.kicker"]}</p>
-          <h2><span>{t["menu.title1"]}</span><span>{t["menu.title2"]}</span></h2>
-          <p>{t["menu.note"]}</p>
-          <a className="button ivory" href="tel:0428244009"><span>電話で相談する</span><small>{t["access.tel"]}</small></a>
-        </div>
-        <div className="menu-list">
-          {menuGroups.map((group) => (
-            <article className="menu-group" key={group.label}>
-              <header><span>{group.label}</span><h3>{group.title}</h3><small>{group.note}</small></header>
-              <div>
-                {group.items.map(([name, price]) => <p key={name}><span>{name}</span><strong>{price}</strong></p>)}
-                {group.label === "CUT" && (
-                  <aside className="fade-note">
-                    <span>{t["menu.fadeNote"]}</span>
-                    <b>{t["menu.fadeName"]}</b>
-                    <p><strong>{t["menu.fadePrice"]}</strong><small>{t["menu.fadeSmall"]}</small></p>
-                  </aside>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
+      <section className="styles section" style={{ paddingTop: 0, paddingBottom: "6vw" }}>
+        <a className="archive-link" href="/price"><span>料金を見る</span><b>PRICE LIST</b><i>→</i></a>
       </section>
 
       <section className="profile section">

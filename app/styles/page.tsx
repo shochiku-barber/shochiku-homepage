@@ -28,7 +28,7 @@ export default async function StyleArchive() {
         <nav className="desktop-nav" aria-label="メインナビゲーション">
           <a href="/">ホーム</a>
           <a href="/#spirit">心意気</a>
-          <a href="/#menu">料金</a>
+          <a href="/price">料金</a>
           <a href="/#access">店舗案内</a>
         </nav>
         <a className="header-reserve" href="tel:0428244009">電話予約</a>
@@ -37,7 +37,7 @@ export default async function StyleArchive() {
           <nav aria-label="モバイルナビゲーション">
             <a href="/">ホーム</a>
             <a href="/#spirit">心意気</a>
-            <a href="/#menu">料金</a>
+            <a href="/price">料金</a>
             <a href="/#access">店舗案内</a>
             <a href="tel:0428244009">電話予約</a>
           </nav>

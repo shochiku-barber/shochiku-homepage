@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "フェード・濡れパン・パンチパーマの髪型｜松竹スタイル",
     description: "青梅市・東青梅のバーバー松竹が仕立てる、男のためのスタイルギャラリー。",
-    url: "https://shochiku-barber.com/styles",
+    url: "https://barber-shochiku.com/styles",
   },
 };
 
@@ -75,7 +75,7 @@ export default async function StyleArchive() {
       <section className="gallery-cta">
         <p>次は、あなたの輪郭を。</p>
         <div>
-          <a href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer">LINEで予約・相談 <b>↗</b></a>
+          <a href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fbarber-shochiku.com%2F" target="_blank" rel="noreferrer">LINEで予約・相談 <b>↗</b></a>
           <a href="tel:0428244009">電話予約 0428-24-4009 <b>→</b></a>
         </div>
       </section>

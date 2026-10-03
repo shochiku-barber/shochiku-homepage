@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "料金｜青梅市の床屋・理容室 松竹",
     description: "松竹の料金表。フェード、濡れパン、パンチパーマ、アイロンパーマ、シェービング。",
-    url: "https://shochiku-barber.com/price",
+    url: "https://barber-shochiku.com/price",
   },
 };
 
@@ -75,7 +75,7 @@ export default async function Price() {
       <section className="gallery-cta">
         <p>ご予約は、お電話かLINEで。</p>
         <div>
-          <a href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer">LINEで予約・相談 <b>↗</b></a>
+          <a href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fbarber-shochiku.com%2F" target="_blank" rel="noreferrer">LINEで予約・相談 <b>↗</b></a>
           <a href="tel:0428244009">電話予約 {t["access.tel"]} <b>→</b></a>
         </div>
       </section>

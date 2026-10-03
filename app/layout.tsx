@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shochiku-barber.com"),
+  metadataBase: new URL("https://barber-shochiku.com"),
   title: "青梅市の床屋・理容室 松竹｜フェード・濡れパン・パンチパーマ",
   description: "東京都青梅市・東青梅の予約制床屋・理容室、ヘアーサロンリザーブ松竹。フェードカット、スキンフェード、濡れパン、パンチパーマ、アイロンパーマを二代目理容師が仕立てます。",
   keywords: ["青梅市 床屋", "青梅市 理容室", "東青梅 床屋", "東京 フェードカット", "フェード", "スキンフェード", "濡れパン", "パンチパーマ", "アイロンパーマ", "バーバー", "松竹"],
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "青梅市の床屋・理容室 松竹｜受け継ぐ技。研ぎ澄ます粋。",
     description: "青梅市・東青梅で、フェード、濡れパン、パンチパーマを仕立てる予約制バーバー。",
-    url: "https://shochiku-barber.com/",
+    url: "https://barber-shochiku.com/",
     siteName: "ヘアーサロンリザーブ松竹",
     type: "website",
     locale: "ja_JP",
@@ -32,22 +32,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://shochiku-barber.com/#website",
-        url: "https://shochiku-barber.com/",
+        "@id": "https://barber-shochiku.com/#website",
+        url: "https://barber-shochiku.com/",
         name: "ヘアーサロンリザーブ松竹",
         alternateName: "松竹",
         inLanguage: "ja",
       },
       {
         "@type": ["HairSalon", "LocalBusiness"],
-        "@id": "https://shochiku-barber.com/#shop",
+        "@id": "https://barber-shochiku.com/#shop",
         name: "ヘアーサロンリザーブ松竹",
         alternateName: "松竹",
         description: "青梅市・東青梅の予約制床屋・理容室。フェード、濡れパン、パンチパーマ、アイロンパーマを得意とするバーバー。",
-        url: "https://shochiku-barber.com/",
+        url: "https://barber-shochiku.com/",
         telephone: "+81-428-24-4009",
-        image: "https://shochiku-barber.com/og.png",
-        logo: "https://shochiku-barber.com/images/shochiku-emblem.png",
+        image: "https://barber-shochiku.com/og.png",
+        logo: "https://barber-shochiku.com/images/shochiku-emblem.png",
         priceRange: "¥¥",
         address: {
           "@type": "PostalAddress",

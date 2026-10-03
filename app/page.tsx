@@ -45,7 +45,7 @@ export default async function Home() {
           <p className="hero-lead"><strong>{t["hero.lead1"]}</strong><br />{t["hero.lead2"]}</p>
           <div className="hero-actions">
             <a className="button solid" href="tel:0428244009"><span>電話で予約</span><small>{t["access.tel"]}</small></a>
-            <a className="button ghost" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer"><span>LINEで予約</span><small>予約・相談</small></a>
+            <a className="button ghost" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fbarber-shochiku.com%2F" target="_blank" rel="noreferrer"><span>LINEで予約</span><small>予約・相談</small></a>
             <a className="text-link" href="/styles">仕上がりを見る <b>↗</b></a>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default async function Home() {
           <a className="map-link" href="https://maps.app.goo.gl/ZiTpnex6NHfdcQHy9" target="_blank" rel="noreferrer">詳しい地図を見る <b>↗</b></a>
         </div>
         <div className="social-actions">
-          <a className="social-link line" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer"><span>LINE</span><b>予約・相談する</b><i>↗</i></a>
+          <a className="social-link line" href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fbarber-shochiku.com%2F" target="_blank" rel="noreferrer"><span>LINE</span><b>予約・相談する</b><i>↗</i></a>
           <a className="social-link instagram" href="https://www.instagram.com/reserve_shochiku" target="_blank" rel="noreferrer"><span>INSTAGRAM</span><b>仕上がりを見る</b><i>↗</i></a>
         </div>
       </section>

@@ -1,5 +1,5 @@
 {
-  // ヘアーサロンリザーブ松竹（shochiku-barber.com）
+  // ヘアーサロンリザーブ松竹（barber-shochiku.com。旧 shochiku-barber.com は移管が通らず当面 GitHub Pages）
   // 我が君（ノエル側）のアカウント。身内のサイトなのでこちらに置く。
   // 中身は dist/ に組み上がったもの。build が毎回 dist/server/wrangler.json も
   // 作るが、そちらには画像変換(IMAGES)の口が無いので、この設定で配る。
@@ -11,6 +11,16 @@
   "no_bundle": true,
   "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
   "assets": { "directory": "dist/client", "binding": "ASSETS" },
+  // 正式な住所。2026-10-03、旧ドメインの移管が通らないため新ドメインを Cloudflare で取得した。
+  // www は worker/index.ts で www なしへ 301 する。
+  // routes を書くと workers.dev が既定で止まる。静的版づくり（scripts/build-github-pages.mjs）が
+  // workers.dev を読みに行くので、これまでどおり有効のままにする。
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "barber-shochiku.com", "custom_domain": true },
+    { "pattern": "www.barber-shochiku.com", "custom_domain": true }
+  ],
   // 管理室（/kanri）で直した文章・料金・写真を入れる倉庫
   "kv_namespaces": [
     { "binding": "CONTENT", "id": "e6f25c07da294853b83392e5dbb302a8" }
@@ -19,7 +29,7 @@
   "d1_databases": [
     { "binding": "DB", "database_name": "shochiku-reserve", "database_id": "8ad7cbe5-c972-4228-a269-922b321a7046" }
   ],
-  // 店へ予約の知らせを出す口。shochiku-barber.com を Cloudflare に載せてから効く。
+  // 店へ予約の知らせを出す口。barber-shochiku.com で Email の設定をしてから効く。
   "send_email": [
     { "name": "EMAIL" }
   ],

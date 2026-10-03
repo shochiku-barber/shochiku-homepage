@@ -10,12 +10,12 @@
  */
 import { env } from "cloudflare:workers";
 
-/* 店の受け取り先。shochiku-barber.com を Cloudflare に載せ、
+/* 店の受け取り先。barber-shochiku.com を Cloudflare に載せ、
    この宛先を「検証済み」にしてから効く。それまでは D1 にだけ残る。 */
 const SHOP_EMAIL = "";                       /* ← 弟さんの受け取り先を入れる */
-const FROM_EMAIL = "reserve@shochiku-barber.com";
+const FROM_EMAIL = "reserve@barber-shochiku.com";
 const SHOP_NAME = "ヘアーサロンリザーブ松竹";
-const SITE = "https://shochiku-barber.com";
+const SITE = "https://barber-shochiku.com";
 const PER_HOUR = 5;
 
 type Env = {

@@ -1,5 +1,5 @@
 #!/bin/bash
-# ヘアーサロンリザーブ松竹（shochiku-barber.com）を Cloudflare へ配る
+# ヘアーサロンリザーブ松竹（barber-shochiku.com）を Cloudflare へ配る
 # ------------------------------------------------------------
 #   bash tools/deploy.sh
 #
@@ -17,7 +17,7 @@ env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_ACCOUNT_ID \
 
 echo
 echo "--- 本番の確認 ---"
-for u in https://shochiku-barber.com https://shochiku-barber.com/styles; do
+for u in https://barber-shochiku.com https://barber-shochiku.com/styles; do
   printf "%-40s " "$u"
   curl -s -o /dev/null -w "HTTP %{http_code}\n" -L --max-time 25 "$u"
 done

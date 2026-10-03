@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "よくあるご質問｜青梅市の床屋・理容室 松竹",
     description: "予約・駐車場・お支払い・営業時間など、お越しになる前に知っておきたいこと。",
-    url: "https://shochiku-barber.com/faq",
+    url: "https://barber-shochiku.com/faq",
   },
 };
 
@@ -28,7 +28,7 @@ export default async function Faq() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://shochiku-barber.com/faq#faq",
+    "@id": "https://barber-shochiku.com/faq#faq",
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.q,
@@ -97,7 +97,7 @@ export default async function Faq() {
                   <div className="faq-actions">
                     <a
                       className="faq-line"
-                      href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F"
+                      href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fbarber-shochiku.com%2F"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -117,7 +117,7 @@ export default async function Faq() {
       <section className="gallery-cta">
         <p>ご不明な点は、お気軽に。</p>
         <div>
-          <a href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fshochiku-barber.com%2F" target="_blank" rel="noreferrer">LINEで予約・相談 <b>↗</b></a>
+          <a href="https://page.line.me/141dfxeh?liff.referrer=https%3A%2F%2Fbarber-shochiku.com%2F" target="_blank" rel="noreferrer">LINEで予約・相談 <b>↗</b></a>
           <a href="tel:0428244009">電話予約 {t["access.tel"]} <b>→</b></a>
         </div>
       </section>

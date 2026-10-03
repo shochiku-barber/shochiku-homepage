@@ -17,7 +17,7 @@ const pages = [
 
 function staticizeHtml(html) {
   return html
-    .replaceAll(sourceBase, "https://shochiku-barber.com")
+    .replaceAll(sourceBase, "https://barber-shochiku.com")
     .replace(
       /\/_vinext\/image\?url=([^"&]+)(?:&amp;|&)[^"]*/g,
       (_, encodedUrl) => decodeURIComponent(encodedUrl),
@@ -148,6 +148,9 @@ await writeFile(
   </url>
   <url>
     <loc>https://shochiku-barber.com/faq</loc>
+  </url>
+  <url>
+    <loc>https://shochiku-barber.com/price</loc>
   </url>
 </urlset>
 `,

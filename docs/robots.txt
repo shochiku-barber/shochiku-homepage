@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://shochiku-barber.com/sitemap.xml
-Host: https://shochiku-barber.com

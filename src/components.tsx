@@ -103,6 +103,8 @@ export const Page: FC<{ meta: Meta; children?: any }> = ({ meta, children }) => 
   const og = meta.og ?? { title: "青梅市の床屋・理容室 松竹｜受け継ぐ技。研ぎ澄ます粋。", description: "青梅市・東青梅で、フェード、濡れパン、パンチパーマを仕立てる予約制バーバー。", url: `${SITE}/` };
   const full = !meta.og;
   return (
+    <>
+    {raw("<!DOCTYPE html>")}
     <html lang="ja">
       <head>
         <meta charset="utf-8" />
@@ -136,5 +138,6 @@ export const Page: FC<{ meta: Meta; children?: any }> = ({ meta, children }) => 
         {children}
       </body>
     </html>
+    </>
   );
 };

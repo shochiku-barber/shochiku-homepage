@@ -18,3 +18,8 @@ Next.js 風の書き方をやめ、Cloudflare Worker 1本（Hono）で作り直�
 
 ## 旧ドメインの転送ページ
 `docs/` は GitHub Pages が配る、旧ドメイン shochiku-barber.com 用の転送ページ。作り直しは `node scripts/build-redirect-pages.mjs`。
+
+## CSS について
+`public/site.css` は、旧版（vinext 版）が配っていた、**Tailwind で組み上げ済みの CSS**（`index-BGpz_4R8.css`）をそのまま使っている。
+元の文章は `styles/globals.source.css`（1行目が `@import "tailwindcss"`）。**このまま配っても動かない**（基本設定が取り込まれない）。
+見た目を直すときは、`public/site.css` を直接直すか、Tailwind の CLI で組み上げ直す。

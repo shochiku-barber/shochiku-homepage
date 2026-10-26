@@ -8,7 +8,7 @@
  * メールが出せなくても申し込みは失われない（知らせの失敗で受付を止めない）。
  * ノエルのお問い合わせと同じ考え方。
  */
-import { env } from "cloudflare:workers";
+import type { Env } from "./env";
 
 /* 店の受け取り先。barber-shochiku.com を Cloudflare に載せ、
    この宛先を「検証済み」にしてから効く。それまでは D1 にだけ残る。 */
@@ -18,18 +18,6 @@ const SHOP_NAME = "ヘアーサロンリザーブ松竹";
 const SITE = "https://barber-shochiku.com";
 const PER_HOUR = 5;
 
-type Env = {
-  DB?: D1Database;
-  EMAIL?: {
-    send(m: {
-      to: string; from: { email: string; name?: string }; replyTo?: string;
-      subject: string; text: string; html: string;
-    }): Promise<unknown>;
-  };
-  RATE?: KVNamespace;
-};
-
-const bind = () => env as unknown as Env;
 
 const reply = (status: number, body: Record<string, unknown>) =>
   new Response(JSON.stringify(body), {
@@ -40,8 +28,8 @@ const reply = (status: number, body: Record<string, unknown>) =>
 const esc = (v: string) =>
   v.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c] as string));
 
-export async function POST(request: Request) {
-  const e = bind();
+export async function reserveApi(request: Request, env: Env): Promise<Response> {
+  const e = env;
   let form: FormData;
   try {
     form = await request.formData();

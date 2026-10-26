@@ -1,20 +1,13 @@
 {
-  // ヘアーサロンリザーブ松竹（barber-shochiku.com。旧 shochiku-barber.com は移管が通らず当面 GitHub Pages）
-  // 2026-10-26 から独立した箱「barber-shochiku.com」（ID 4985dec2…）に置いている。ドメインの登録も同じ箱。
-  // 中身は dist/ に組み上がったもの。build が毎回 dist/server/wrangler.json も
-  // 作るが、そちらには画像変換(IMAGES)の口が無いので、この設定で配る。
+  // ヘアーサロンリザーブ松竹（barber-shochiku.com）。Hono 1本の Worker。
+  // 2026-10-26 から独立した箱「barber-shochiku.com」（ID 4985dec2…）に置いている。
   "name": "shochiku-homepage",
   "account_id": "4985dec211e1b7a930d2b6685daf9477",
-  "main": "dist/server/index.js",
+  "main": "src/index.tsx",
   "compatibility_date": "2026-05-15",
   "compatibility_flags": ["nodejs_compat"],
-  "no_bundle": true,
-  "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }],
-  "assets": { "directory": "dist/client", "binding": "ASSETS" },
-  // 正式な住所。2026-10-03、旧ドメインの移管が通らないため新ドメインを Cloudflare で取得した。
-  // www は worker/index.ts で www なしへ 301 する。
-  // routes を書くと workers.dev が既定で止まる。静的版づくり（scripts/build-github-pages.mjs）が
-  // workers.dev を読みに行くので、これまでどおり有効のままにする。
+  "assets": { "directory": "public", "binding": "ASSETS" },
+  // 旧ドメインの静的版づくり（scripts/build-redirect-pages.mjs）は workers.dev を読まないが、これまでどおり有効のまま。
   "workers_dev": true,
   "preview_urls": true,
   "routes": [
@@ -22,18 +15,12 @@
     { "pattern": "www.barber-shochiku.com", "custom_domain": true }
   ],
   // 管理室（/kanri）で直した文章・料金・写真を入れる倉庫
-  "kv_namespaces": [
-    { "binding": "CONTENT", "id": "5309439a4e414a399355d965c2e36c61" }
-  ],
+  "kv_namespaces": [{ "binding": "CONTENT", "id": "5309439a4e414a399355d965c2e36c61" }],
   // 予約の申し込みを入れる倉庫。まだ導線は出していないが、器は先に用意した。
-  "d1_databases": [
-    { "binding": "DB", "database_name": "shochiku-reserve", "database_id": "f764a808-d146-4985-b777-3454ade69fcc" }
-  ],
+  "d1_databases": [{ "binding": "DB", "database_name": "shochiku-reserve", "database_id": "f764a808-d146-4985-b777-3454ade69fcc" }],
   // 店へ予約の知らせを出す口。barber-shochiku.com で Email の設定をしてから効く。
-  "send_email": [
-    { "name": "EMAIL" }
-  ],
-  // 写真を画面の大きさに合わせて縮めて配る（/_vinext/image）
+  "send_email": [{ "name": "EMAIL" }],
+  // 写真を画面の大きさに合わせて縮めて配る（/_img）
   "images": { "binding": "IMAGES" },
   "observability": { "enabled": true }
 }

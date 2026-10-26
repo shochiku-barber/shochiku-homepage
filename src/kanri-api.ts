@@ -8,11 +8,9 @@
  * 合言葉は環境変数 KANRI_KEY。コードには書かない。
  * 間違いが続いたら、しばらく受け付けない（片端から試されないように）。
  */
-import { env } from "cloudflare:workers";
-import { DEFAULTS, type Content } from "../../content";
+import { DEFAULTS, type Content } from "./content";
+import type { Env } from "./env";
 
-type Store = { CONTENT?: KVNamespace; KANRI_KEY?: string };
-const store = () => env as unknown as Store;
 
 const ALLOWED_IMAGE = ["image/jpeg", "image/png", "image/webp"];
 const MAX_IMAGE = 5 * 1024 * 1024;
@@ -33,8 +31,8 @@ function same(a: string, b: string) {
   return diff === 0;
 }
 
-async function guard(request: Request) {
-  const { CONTENT: kv, KANRI_KEY: key } = store();
+async function guard(request: Request, env: Env) {
+  const { CONTENT: kv, KANRI_KEY: key } = env;
   if (!kv) return json({ error: "倉庫が設定されていません" }, 500);
   if (!key) return json({ error: "合言葉が設定されていません" }, 500);
 
@@ -56,8 +54,8 @@ async function guard(request: Request) {
 const s = (v: unknown, max: number) => String(v ?? "").slice(0, max);
 
 /** 写真を幅1200・JPEGに縮める。できなければ元のまま返す。 */
-async function shrinkImage(bytes: ArrayBuffer, type: string): Promise<{ bytes: ArrayBuffer; type: string }> {
-  const images = (env as unknown as { IMAGES?: ImagesBinding }).IMAGES;
+async function shrinkImage(env: Env, bytes: ArrayBuffer, type: string): Promise<{ bytes: ArrayBuffer; type: string }> {
+  const images = env.IMAGES;
   if (!images) return { bytes, type };
   try {
     const result = await images
@@ -74,10 +72,10 @@ async function shrinkImage(bytes: ArrayBuffer, type: string): Promise<{ bytes: A
   }
 }
 
-export async function POST(request: Request) {
-  const blocked = await guard(request);
+export async function kanriApi(request: Request, env: Env): Promise<Response> {
+  const blocked = await guard(request, env);
   if (blocked) return blocked;
-  const kv = store().CONTENT!;
+  const kv = env.CONTENT!;
 
   const type = request.headers.get("content-type") || "";
 
@@ -93,7 +91,7 @@ export async function POST(request: Request) {
     // 携帯で撮った写真はそのままだと 3〜5MB あり、載せるとページが開かなくなる。
     // 受け取った時点で幅1200まで縮め、JPEGにしておく（元より大きくはしない）。
     // 変換の口（IMAGES）が使えないときは、受け取ったものをそのまま入れる。
-    const shrunk = await shrinkImage(bytes, file.type);
+    const shrunk = await shrinkImage(env, bytes, file.type);
     const id = crypto.randomUUID();
     await kv.put(`img:${id}`, shrunk.bytes, { metadata: { type: shrunk.type } });
     return json({ ok: true, url: `/img/${id}` });

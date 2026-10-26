@@ -5,7 +5,6 @@
  * KV に入り、こちらを上書きする。**KVが空でもサイトは既定値で動く。**
  * ——倉庫が落ちても店は開ける、という考え方。
  */
-import { env } from "cloudflare:workers";
 
 export type MenuGroup = { label: string; title: string; note: string; items: [string, string][] };
 export type StyleShot = { src: string; alt: string };
@@ -143,11 +142,8 @@ export const DEFAULT_STYLES: StyleShot[] = [
 
 export const DEFAULTS: Content = { texts: DEFAULT_TEXTS, menu: DEFAULT_MENU, styles: DEFAULT_STYLES };
 
-type Store = { CONTENT?: KVNamespace };
-
 /** 管理室で直したものを読む。無ければ既定値。 */
-export async function readContent(): Promise<Content> {
-  const kv = (env as unknown as Store).CONTENT;
+export async function readContent(kv?: KVNamespace): Promise<Content> {
   if (!kv) return DEFAULTS;
   try {
     const raw = await kv.get("content");
